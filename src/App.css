@@ -14,11 +14,7 @@
 }
 
 .App-header {
-<<<<<<< HEAD
-  background-color: black; /* Changed this to black */
-=======
-  background-color: #282c34;
->>>>>>> 8caf3299efdd304f8770f20b00e48eb19cdd00a9
+  background-color: black; /* Chose black background */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
