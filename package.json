@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-  "name": "fitnessapui",
-=======
   "name": "fitnessapp",
->>>>>>> 8caf3299efdd304f8770f20b00e48eb19cdd00a9
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,7 +7,6 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^13.5.0",
-<<<<<<< HEAD
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
     "react": "^19.0.0",
@@ -19,10 +14,6 @@
     "react-bootstrap-icons": "^1.11.5",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
-=======
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
->>>>>>> 8caf3299efdd304f8770f20b00e48eb19cdd00a9
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
