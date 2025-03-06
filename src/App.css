@@ -192,6 +192,60 @@
 }
 
 
+/* User profile */
+
+.profile-page {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Background Image */
+.profile-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://media.istockphoto.com/id/1372029253/photo/happy-asian-athletic-woman-using-smart-phone-while-exercising-on-treadmill-in-a-gym.jpg?s=612x612&w=0&k=20&c=peduRSOQcwkYPxa25WQBuOMb4I-Fdeio4-IPEkj2rkc=');
+  filter: blur(2px);
+  z-index: -1;
+}
+
+/* Profile Card */
+.profile-container {
+  width: 70%;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Profile Image */
+.profile-image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+}
+
+/* Logout Button */
+.logout-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+/* Back Button */
+.back-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+
 
 
 @keyframes App-logo-spin {

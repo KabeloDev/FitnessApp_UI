@@ -36,7 +36,7 @@ function Login() {
             .then((response) => {
                 localStorage.setItem("token", response.data.token);
                 console.log("User logged in: ", response.data.token);
-                navigate("/");
+                navigate("/dashboard");
             })
             .catch((error) => {
                 console.log(error);

@@ -267,10 +267,10 @@ const Home = () => {
           <i class="bi bi-person-circle fs-1"></i>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <ListGroup.Item className="mt-5 mb-5"><Button variant="secondary">User Profile</Button></ListGroup.Item>
+          <ListGroup.Item className="mt-5 mb-5"><Button variant="secondary" onClick={() => navigate("/profile")}>User Profile</Button></ListGroup.Item>
           <ListGroup.Item className="mb-5"><Button variant="secondary">Exercise Library</Button></ListGroup.Item>
           <ListGroup.Item className="mb-5"><Button variant="secondary">Workout Planner</Button></ListGroup.Item>
-          <ListGroup.Item><Button variant="secondary">Dashboard</Button></ListGroup.Item>
+          <ListGroup.Item><Button variant="secondary" onClick={() => navigate("/dashboard")}>Dashboard</Button></ListGroup.Item>
         </Offcanvas.Body>
       </Offcanvas>
 
