@@ -6,6 +6,8 @@ import { IoFitness } from "react-icons/io5";
 import { FaBars } from 'react-icons/fa';
 import { Carousel } from "react-bootstrap";
 import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
+import { FaHeartbeat, FaUsers, FaRunning } from "react-icons/fa";
+import { Collapse } from "react-bootstrap";
 
 
 const Home = () => {
@@ -15,6 +17,8 @@ const Home = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleModalClose = () => setModalShow(null);
+
+  const [open, setOpen] = useState(false);
 
   return (
     <div style={{ position: 'relative', minHeight: '100vh' }}>
@@ -95,7 +99,7 @@ const Home = () => {
         }}>
           <h1 className="display-4 text-white font-weight-bold">Reach Your Fitness Goals with Ease</h1>
           <p className="lead text-white mb-4">Track, plan, and achieve your fitness journey like never before.</p>
-          <Button variant="danger" size="lg" className="btn-lg shadow-lg">Start Your Journey Now</Button>
+          <Button variant="light" size="lg" className="btn-lg shadow-lg">Start Your Journey Now</Button>
         </div>
 
         <div style={{ position: 'relative', minHeight: '100vh' }}>
@@ -111,38 +115,87 @@ const Home = () => {
           }}></div>
 
 
-          {/* YouTube Video Blocks */}
-          <div className="my-5">
-            <h3 className="text-center mb-4 text-white">Fitness Tutorials</h3>
+<div className="my-5">
+  <h3 className="text-center mb-4 text-white">Fitness Tutorials</h3>
+  
+  <div className="video-slider-container">
+    <div className="video-slider">
+      {/* YouTube Videos */}
+      {[
+        "https://www.youtube.com/embed/EQPNDlRq5Ps",
+        "https://www.youtube.com/embed/zUDfwrm1DV8",
+        "https://www.youtube.com/embed/4LYq8DRh4DU",
+        "https://www.youtube.com/embed/wd25wFy75lo",
+        "https://www.youtube.com/embed/OmXAk6IvT9E",
+        "https://www.youtube.com/embed/lk10MSbrs-w",
+      ].map((video, index) => (
+        <div key={index} className="video-block">
+          <iframe width="350" height="300" src={video} allowFullScreen></iframe>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
 
-            <div className="row">
-              {/* YouTube Video 1 */}
-              <div className="col-md-4 mb-4">
-                <div className="video-block">
-                  <iframe width="350" height="300" src="https://www.youtube.com/embed/EQPNDlRq5Ps" title="Big BACK workout 💪🏽 #shorts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                  <div className="video-caption mt-3">
-                  </div>
-                </div>
-              </div>
 
-              {/* YouTube Video 2 */}
-              <div className="col-md-4 mb-4">
-                <div className="video-block">
-                  <iframe width="350" height="300" src="https://www.youtube.com/embed/KW_Imfnb-Xo" title="📌LOWER ABS EXERCISES 👉Adding these into your routine will help strengthen and tone your lower abs." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                  <div className="video-caption mt-3">
-                  </div>
-                </div>
-              </div>
+          <div style={{ position: 'relative', minHeight: '100vh' }}>
+            <div style={{
+              position: 'absolute',
+              top: 0, left: 0, right: 0, bottom: 0,
+              backgroundImage: `url('https://img.freepik.com/premium-photo/fitness-gym-portrait-group-people-standing-with-crossed-arms-leadership-confidence-sports-collaboration-happy-team-after-exercise-workout-training-class-health-studio_590464-130785.jpg')`,
+              backgroundSize: 'contain',
+              backgroundPosition: 'center',
+              backgroundAttachment: 'fixed',
+              filter: 'blur(2px)',
+              zIndex: -1,
+            }}></div>
 
-              {/* YouTube Video 3 */}
-              <div className="col-md-4 mb-4">
-                <div className="video-block">
-                  <iframe width="350" height="300" src="https://www.youtube.com/embed/lk10MSbrs-w" title="BEGINNER FULL BODY WORKOUT #shorts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                  <div className="video-caption mt-3">
+            {/* Clubs Section */}
+            <div className="clubs-section text-center py-5" style={{ backgroundColor: '#222', color: 'white', borderRadius: '200px', padding: '50px 20px', background: 'linear-gradient(135deg, rgba(136, 106, 106, 0.6), rgba(65, 58, 46, 0.6))' }}>
+              <h2 className="mb-4">Join Our Clubs</h2>
+              <Container>
+                <Row className="justify-content-center">
+                  {[
+                    { icon: <FaHeartbeat size={50} className="text-danger" />, title: "Fitness Club", text: "Exclusive workouts, expert guidance, and a strong community to keep you motivated." },
+                    { icon: <FaUsers size={50} className="text-primary" />, title: "Social Club", text: "Connect with like-minded fitness enthusiasts, share progress, and stay inspired." },
+                    { icon: <FaRunning size={50} className="text-success" />, title: "Running Club", text: "Push your limits, track your runs, and participate in group challenges." }
+                  ].map((club, index) => (
+                    <Col md={4} key={index} className="mb-4 d-flex justify-content-center">
+                      <div className="bubble shadow-lg p-4 text-center" style={{
+                        background: 'rgba(255, 255, 255, 0.1)',
+                        backdropFilter: 'blur(10px)',
+                        borderRadius: '30px',
+                        maxWidth: '320px',
+                        padding: '20px',
+                        color: 'white',
+                        border: '1px solid rgba(255, 255, 255, 0.2)',
+                        background: 'linear-gradient(135deg, rgba(94, 14, 14, 0.6), rgba(65, 58, 46, 0.6))'
+                      }}>
+                        {club.icon}
+                        <h4 className="mt-3">{club.title}</h4>
+                        <p className="mt-2">{club.text}</p>
+                      </div>
+                    </Col>
+                  ))}
+                </Row>
+
+                <Button
+                  variant="dark"
+                  onClick={() => setOpen(!open)}
+                  aria-controls="club-info"
+                  aria-expanded={open}
+                >
+                  More
+                </Button>
+
+                <Collapse in={open} >
+                  <div id="club-info" className="mt-3 p-3 text-black" style={{ backgroundColor: "rgba(255, 255, 255, 0.93)", borderRadius: "10px" }}>
+                    <p>You can change your club anytime by visiting your profile settings. Simply select a new club from the available options and confirm your choice.</p>
                   </div>
-                </div>
-              </div>
+                </Collapse>
+              </Container>
             </div>
+
           </div>
 
           {/* Social media footer */}

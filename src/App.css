@@ -28,6 +28,29 @@
   color: #61dafb;
 }
 
+.video-slider-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 10px;
+  scrollbar-width: none; /* Hides scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hides scrollbar for IE/Edge */
+}
+
+.video-slider-container::-webkit-scrollbar {
+  display: none; /* Hides scrollbar for Chrome, Safari */
+}
+
+.video-slider {
+  display: flex;
+  gap: 10px;
+}
+
+.video-block {
+  flex: 0 0 auto;
+  width: 350px;
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
