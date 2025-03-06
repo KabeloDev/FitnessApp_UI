@@ -47,6 +47,16 @@ const Home = () => {
           FitnessApp
         </h1>
         <p className="lead">Your journey to a healthier lifestyle starts here.</p>
+
+        {/* Sign In Button - Positioned to the top right */}
+        <div style={{
+          position: 'absolute',
+          top: '50px',
+          right: '20px',
+          zIndex: 1000,
+        }}>
+          <Button variant="secondary">Sign In <i class="bi bi-person-up fs-5"></i></Button>
+        </div>
       </div>
 
       <Container className="text-center mt-3" style={{ position: 'relative' }}>
@@ -115,27 +125,27 @@ const Home = () => {
           }}></div>
 
 
-<div className="my-5">
-  <h3 className="text-center mb-4 text-white">Fitness Tutorials</h3>
-  
-  <div className="video-slider-container">
-    <div className="video-slider">
-      {/* YouTube Videos */}
-      {[
-        "https://www.youtube.com/embed/EQPNDlRq5Ps",
-        "https://www.youtube.com/embed/zUDfwrm1DV8",
-        "https://www.youtube.com/embed/4LYq8DRh4DU",
-        "https://www.youtube.com/embed/wd25wFy75lo",
-        "https://www.youtube.com/embed/OmXAk6IvT9E",
-        "https://www.youtube.com/embed/lk10MSbrs-w",
-      ].map((video, index) => (
-        <div key={index} className="video-block">
-          <iframe width="350" height="300" src={video} allowFullScreen></iframe>
-        </div>
-      ))}
-    </div>
-  </div>
-</div>
+          <div className="my-5">
+            <h3 className="text-center mb-4 text-white">Fitness Tutorials</h3>
+
+            <div className="video-slider-container">
+              <div className="video-slider">
+                {/* YouTube Videos */}
+                {[
+                  "https://www.youtube.com/embed/EQPNDlRq5Ps",
+                  "https://www.youtube.com/embed/zUDfwrm1DV8",
+                  "https://www.youtube.com/embed/4LYq8DRh4DU",
+                  "https://www.youtube.com/embed/wd25wFy75lo",
+                  "https://www.youtube.com/embed/OmXAk6IvT9E",
+                  "https://www.youtube.com/embed/lk10MSbrs-w",
+                ].map((video, index) => (
+                  <div key={index} className="video-block">
+                    <iframe width="350" height="300" src={video} allowFullScreen></iframe>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
 
 
           <div style={{ position: 'relative', minHeight: '100vh' }}>
