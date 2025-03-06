@@ -28,27 +28,170 @@
   color: #61dafb;
 }
 
+/* Video section on hme page */
+
 .video-slider-container {
   overflow-x: auto;
   white-space: nowrap;
   padding-bottom: 10px;
-  scrollbar-width: none; /* Hides scrollbar for Firefox */
+  /* scrollbar-width: none; Hides scrollbar for Firefox */
   -ms-overflow-style: none; /* Hides scrollbar for IE/Edge */
 }
 
-.video-slider-container::-webkit-scrollbar {
-  display: none; /* Hides scrollbar for Chrome, Safari */
-}
+/* .video-slider-container::-webkit-scrollbar {
+  display: none; 
+} */
 
 .video-slider {
   display: flex;
-  gap: 10px;
+  gap: 50px;
+  border-radius: 5px;
 }
 
 .video-block {
   flex: 0 0 auto;
   width: 350px;
 }
+
+/* Register page */
+
+/* Background styling */
+.register-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("https://media.istockphoto.com/id/670051268/photo/people-at-the-gym-talking-to-the-receptionist.jpg?s=612x612&w=0&k=20&c=aD_wBFo5gWOdUhjvZo4mLXFde3__6e8S0lkMqdTKFOg=");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Blurry background effect */
+.register-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  background-size: contain;
+  backdrop-filter: blur(2px);
+}
+
+/* Register form container */
+.register-container {
+  position: relative;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  color: white;
+}
+
+/* Form styling */
+.register-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Button styling */
+.register-container .btn-primary {
+  background-color: #007bff;
+  border: none;
+  font-size: 16px;
+}
+
+.register-container .btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.register-container .btn-secondary {
+  background-color: #6c757d;
+  border: none;
+  font-size: 16px;
+}
+
+.register-container .btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+
+/* Sign in page */
+
+/* Background styling */
+.login-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("https://media.istockphoto.com/id/1094355244/photo/happy-male-athlete-listening-music-on-treadmill-in-a-gym.jpg?s=612x612&w=0&k=20&c=ryhVuZ76iiRLO0mAFALLSwu9R8ezjSz_D9TQvuhZuh4=");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Blurry background effect */
+.login-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+}
+
+/* Login form container */
+.login-container {
+  position: relative;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  color: white;
+}
+
+/* Form styling */
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Button styling */
+.login-container .btn-primary {
+  background-color: #007bff;
+  border: none;
+  font-size: 16px;
+}
+
+.login-container .btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.login-container .btn-secondary {
+  background-color: #6c757d;
+  border: none;
+  font-size: 16px;
+}
+
+.login-container .btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+
 
 
 @keyframes App-logo-spin {

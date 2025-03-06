@@ -228,8 +228,8 @@ const Home = () => {
             bottom: 0,
             borderRadius: '50px'
           }}>
-            <h5>Follow Us on Social Media</h5>
-            <div className="social-icons">
+            <h5 className="mb-2">Follow Us on Social Media</h5>
+            <div className="social-icons mb-2">
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="mx-3">
                 <FaFacebook size={30} className="text-white" />
               </a>
