@@ -8,6 +8,7 @@ import { Carousel } from "react-bootstrap";
 import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
 import { FaHeartbeat, FaUsers, FaRunning } from "react-icons/fa";
 import { Collapse } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 
 const Home = () => {
@@ -19,6 +20,8 @@ const Home = () => {
   const handleModalClose = () => setModalShow(null);
 
   const [open, setOpen] = useState(false);
+
+  var navigate = useNavigate();
 
   return (
     <div style={{ position: 'relative', minHeight: '100vh' }}>
@@ -55,7 +58,7 @@ const Home = () => {
           right: '20px',
           zIndex: 1000,
         }}>
-          <Button variant="secondary">Sign In <i class="bi bi-person-up fs-5"></i></Button>
+          <Button variant="secondary" onClick={() => navigate("/login")}>Sign In <i class="bi bi-person-up fs-5"></i></Button>
         </div>
       </div>
 
@@ -99,7 +102,7 @@ const Home = () => {
           </Col>
         </Row>
 
-        <div className="hero-section mb-5" style={{
+        <div className="hero-section mb-5 mt-5" style={{
           filter: 'blur(0.5px)',
           padding: '100px 0',
           textAlign: 'center',
@@ -109,7 +112,7 @@ const Home = () => {
         }}>
           <h1 className="display-4 text-white font-weight-bold">Reach Your Fitness Goals with Ease</h1>
           <p className="lead text-white mb-4">Track, plan, and achieve your fitness journey like never before.</p>
-          <Button variant="light" size="lg" className="btn-lg shadow-lg">Start Your Journey Now</Button>
+          <Button variant="light" size="lg" className="btn-lg shadow-lg" onClick={() => navigate("/register")}>Start Your Journey Now</Button>
         </div>
 
         <div style={{ position: 'relative', minHeight: '100vh' }}>
@@ -125,7 +128,7 @@ const Home = () => {
           }}></div>
 
 
-          <div className="my-5">
+          <div className="my-5 mt-5">
             <h3 className="text-center mb-4 text-white">Daily Fitness Tutorials</h3>
 
             <div className="video-slider-container">
@@ -166,11 +169,11 @@ const Home = () => {
               <Container>
                 <Row className="justify-content-center">
                   {[
-                    { 
-                      icon: <FaBasketballBall size={50} className="text-warning" />, 
-                      title: "Sports Club", 
-                      text: "Join our dynamic sports community with exclusive training, expert coaching, and competitive events to fuel your passion." 
-                    },                    
+                    {
+                      icon: <FaBasketballBall size={50} className="text-warning" />,
+                      title: "Sports Club",
+                      text: "Join our dynamic sports community with exclusive training, expert coaching, and competitive events to fuel your passion."
+                    },
                     { icon: <FaUsers size={50} className="text-primary" />, title: "Social Club", text: "Connect with like-minded fitness enthusiasts, share progress, and stay inspired." },
                     { icon: <FaRunning size={50} className="text-success" />, title: "Running Club", text: "Push your limits, track your runs, and participate in group challenges." }
                   ].map((club, index) => (
@@ -204,7 +207,10 @@ const Home = () => {
 
                 <Collapse in={open} >
                   <div id="club-info" className="mt-3 p-3 text-black" style={{ backgroundColor: "rgba(255, 255, 255, 0.93)", borderRadius: "10px" }}>
-                    <p>You can change your club anytime by visiting your profile settings. Simply select a new club from the available options and confirm your choice.</p>
+                    <p>
+                      You have the flexibility to switch your club at any time by visiting your profile settings. Once there, navigate to the "Club Membership" section where you will find a list of available clubs you can join. Each club option will have a brief description, so you can choose the one that best aligns with your fitness goals and interests. Simply select a new club from the list, review the details, and confirm your selection. After confirming, your profile will be updated with your new club affiliation, and you can start enjoying the benefits and activities of your new club immediately.
+                    </p>
+
                   </div>
                 </Collapse>
               </Container>
