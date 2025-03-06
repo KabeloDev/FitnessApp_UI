@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Button, Card, Modal, Offcanvas, ListGroup } from "react-bootstrap";
-import { FaDumbbell } from "react-icons/fa";
+import { FaBasketballBall, FaDumbbell } from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
 import { IoFitness } from "react-icons/io5";
 import { FaBars } from 'react-icons/fa';
@@ -126,7 +126,7 @@ const Home = () => {
 
 
           <div className="my-5">
-            <h3 className="text-center mb-4 text-white">Fitness Tutorials</h3>
+            <h3 className="text-center mb-4 text-white">Daily Fitness Tutorials</h3>
 
             <div className="video-slider-container">
               <div className="video-slider">
@@ -166,7 +166,11 @@ const Home = () => {
               <Container>
                 <Row className="justify-content-center">
                   {[
-                    { icon: <FaHeartbeat size={50} className="text-danger" />, title: "Fitness Club", text: "Exclusive workouts, expert guidance, and a strong community to keep you motivated." },
+                    { 
+                      icon: <FaBasketballBall size={50} className="text-warning" />, 
+                      title: "Sports Club", 
+                      text: "Join our dynamic sports community with exclusive training, expert coaching, and competitive events to fuel your passion." 
+                    },                    
                     { icon: <FaUsers size={50} className="text-primary" />, title: "Social Club", text: "Connect with like-minded fitness enthusiasts, share progress, and stay inspired." },
                     { icon: <FaRunning size={50} className="text-success" />, title: "Running Club", text: "Push your limits, track your runs, and participate in group challenges." }
                   ].map((club, index) => (
