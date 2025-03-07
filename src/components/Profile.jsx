@@ -1,7 +1,7 @@
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import { useEffect, useState } from "react";
-import { Button, Form, Alert, Container, Row, Col, Image } from "react-bootstrap";
+import { Button, Form, Alert, Container, Row, Col, Image, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 function Profile() {
@@ -15,6 +15,7 @@ function Profile() {
     const [userId, setUserId] = useState("");
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
+    const [showModal, setShowModal] = useState(false); // Modal state
 
     // List of 5 avatar URLs
     const avatarOptions = [
@@ -37,6 +38,8 @@ function Profile() {
             } catch (error) {
                 console.log("Error decoding token:", error);
             }
+        } else {
+            setShowModal(true); // Show the modal if no token is found
         }
     }, [token]);
 
@@ -76,87 +79,112 @@ function Profile() {
         navigate("/login");
     }
 
+    function handleSignInRedirect() {
+        navigate("/login");
+    }
+
     return (
-        <div className="profile-page">
-            <Container className="d-flex justify-content-center align-items-center vh-100">
-                <Row className="profile-container p-4">
-                    {/* Left: Profile Picture */}
-                    <Col md={4} className="text-center">
-                        <Image
-                            src={userPic && userPic.trim() !== "string" ? userPic : "https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"}
-                            roundedCircle
-                            className="profile-image"
-                        />
+        <>
+            {/* Modal for not signed in */}
+            <Modal show={showModal} onHide={() => setShowModal(false)}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Sign In Required</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    You need to sign in to view and edit your profile.
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={() => navigate("/")}>
+                        Close
+                    </Button>
+                    <Button variant="primary" onClick={handleSignInRedirect}>
+                        Go to Sign In
+                    </Button>
+                </Modal.Footer>
+            </Modal>
 
-
-                        <h3 className="mt-3">{userName}</h3>
-                        <p className="text-muted">{userEmail}</p>
-                    </Col>
-
-                    {/* Right: Editable User Info */}
-                    <Col md={8}>
-                        <h2 className="mb-4">Edit Profile</h2>
-
-                        {error && <Alert variant="danger">{error}</Alert>}
-                        {success && <Alert variant="success">{success}</Alert>}
-
-                        <Form>
-                            <Form.Group className="mb-3">
-                                <Form.Label>Username</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    value={userName}
-                                    onChange={(e) => setUserName(e.target.value)}
+            {token && (
+                <div className="profile-page">
+                    <Container className="d-flex justify-content-center align-items-center vh-100">
+                        <Row className="profile-container p-4">
+                            {/* Left: Profile Picture */}
+                            <Col md={4} className="text-center">
+                                <Image
+                                    src={userPic && userPic.trim() !== "string" ? userPic : "https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"}
+                                    roundedCircle
+                                    className="profile-image"
                                 />
-                            </Form.Group>
 
-                            <Form.Group className="mb-3">
-                                <Form.Label>Email</Form.Label>
-                                <Form.Control
-                                    type="email"
-                                    value={userEmail}
-                                    onChange={(e) => setUserEmail(e.target.value)}
-                                />
-                            </Form.Group>
+                                <h3 className="mt-3">{userName}</h3>
+                                <p className="text-muted">{userEmail}</p>
+                            </Col>
 
-                            {/* Avatar Selection */}
-                            <Form.Group className="mb-3">
-                                <Form.Label>Select an Avatar</Form.Label>
-                                <div className="avatar-selection d-flex justify-content-between">
-                                    {avatarOptions.map((avatar, index) => (
-                                        <Image
-                                            key={index}
-                                            src={avatar}
-                                            roundedCircle
-                                            className={`avatar-option ${userPic === avatar ? "selected-avatar" : ""}`}
-                                            onClick={() => setUserPic(avatar)}
-                                            style={{ width: "50px", height: "50px", cursor: "pointer", border: userPic === avatar ? "3px solid #007bff" : "none" }}
+                            {/* Right: Editable User Info */}
+                            <Col md={8}>
+                                <h2 className="mb-4">Edit Profile</h2>
+
+                                {error && <Alert variant="danger">{error}</Alert>}
+                                {success && <Alert variant="success">{success}</Alert>}
+
+                                <Form>
+                                    <Form.Group className="mb-3">
+                                        <Form.Label>Username</Form.Label>
+                                        <Form.Control
+                                            type="text"
+                                            value={userName}
+                                            onChange={(e) => setUserName(e.target.value)}
                                         />
-                                    ))}
-                                </div>
-                            </Form.Group>
+                                    </Form.Group>
 
-                            <Button className="w-100 mb-3" variant="primary" onClick={handleSaveChanges}>
-                                Save Changes
-                            </Button>
-                        </Form>
+                                    <Form.Group className="mb-3">
+                                        <Form.Label>Email</Form.Label>
+                                        <Form.Control
+                                            type="email"
+                                            value={userEmail}
+                                            onChange={(e) => setUserEmail(e.target.value)}
+                                        />
+                                    </Form.Group>
 
-                        {/* Log Out Button */}
-                        <Button className="logout-btn" variant="danger" onClick={handleLogout}>
-                            Log Out
-                        </Button>
-                    </Col>
-                </Row>
-            </Container>
+                                    {/* Avatar Selection */}
+                                    <Form.Group className="mb-3">
+                                        <Form.Label>Select an Avatar</Form.Label>
+                                        <div className="avatar-selection d-flex justify-content-between">
+                                            {avatarOptions.map((avatar, index) => (
+                                                <Image
+                                                    key={index}
+                                                    src={avatar}
+                                                    roundedCircle
+                                                    className={`avatar-option ${userPic === avatar ? "selected-avatar" : ""}`}
+                                                    onClick={() => setUserPic(avatar)}
+                                                    style={{ width: "50px", height: "50px", cursor: "pointer", border: userPic === avatar ? "3px solid #007bff" : "none" }}
+                                                />
+                                            ))}
+                                        </div>
+                                    </Form.Group>
 
-            {/* Background Image with Blur */}
-            <div className="profile-bg"></div>
+                                    <Button className="w-100 mb-3" variant="primary" onClick={handleSaveChanges}>
+                                        Save Changes
+                                    </Button>
+                                </Form>
 
-            {/* Back Button */}
-            <Button className="back-btn" variant="light" onClick={() => navigate("/")}>
-                Back
-            </Button>
-        </div>
+                                {/* Log Out Button */}
+                                <Button className="logout-btn" variant="danger" onClick={handleLogout}>
+                                    Log Out
+                                </Button>
+                            </Col>
+                        </Row>
+                    </Container>
+
+                    {/* Background Image with Blur */}
+                    <div className="profile-bg"></div>
+
+                    {/* Back Button */}
+                    <Button className="back-btn" variant="light" onClick={() => navigate("/")}>
+                        Back
+                    </Button>
+                </div>
+            )}
+        </>
     );
 }
 

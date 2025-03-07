@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Container, Row, Col, Button, Card, Modal, Offcanvas, ListGroup } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Container, Row, Col, Button, Card, Modal, Offcanvas, ListGroup, Alert } from "react-bootstrap";
 import { FaBasketballBall, FaDumbbell } from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
 import { IoFitness } from "react-icons/io5";
@@ -9,6 +9,9 @@ import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
 import { FaHeartbeat, FaUsers, FaRunning } from "react-icons/fa";
 import { Collapse } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+
+// Get the authentication status
+const isAuthenticated = !!localStorage.getItem("token"); // Check if a token exists
 
 
 const Home = () => {
@@ -21,7 +24,36 @@ const Home = () => {
 
   const [open, setOpen] = useState(false);
 
+  const [error, setError] = useState("");
+
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // Manage authentication status
+
   var navigate = useNavigate();
+
+  useEffect(() => {
+    // Dynamically check the token when the component mounts
+    const token = localStorage.getItem("token");
+    setIsAuthenticated(!!token); // Set authentication state based on token
+  }, []); // Empty array makes this effect run only once when the component mounts
+
+  // Function for sign-in button
+  const handleSignInClick = () => {
+    
+    if (isAuthenticated) {
+      setError("You are already signed in!");
+    } else {
+      navigate("/login");
+    }
+  };
+
+   // Function to handle feature clicks
+  //  const handleFeatureClick = (path) => {
+  //   if (!isAuthenticated) {
+  //     setError("You need to sign in to access this feature.");
+  //   } else {
+  //     navigate(path);
+  //   }
+  // };
 
   return (
     <div style={{ position: 'relative', minHeight: '100vh' }}>
@@ -58,7 +90,8 @@ const Home = () => {
           right: '20px',
           zIndex: 1000,
         }}>
-          <Button variant="secondary" onClick={() => navigate("/login")}>Sign In <i class="bi bi-person-up fs-5"></i></Button>
+          <Button variant="secondary" onClick={handleSignInClick}>Sign In <i class="bi bi-person-up fs-5"></i></Button>
+          {error && <Alert className="mb-3" variant="info">{error}</Alert>}
         </div>
       </div>
 
@@ -268,8 +301,8 @@ const Home = () => {
         </Offcanvas.Header>
         <Offcanvas.Body>
           <ListGroup.Item className="mt-5 mb-5"><Button variant="secondary" onClick={() => navigate("/profile")}>User Profile</Button></ListGroup.Item>
-          <ListGroup.Item className="mb-5"><Button variant="secondary">Exercise Library</Button></ListGroup.Item>
-          <ListGroup.Item className="mb-5"><Button variant="secondary">Workout Planner</Button></ListGroup.Item>
+          <ListGroup.Item className="mb-5"><Button variant="secondary" onClick={() => navigate("/exerciselibrary")}>Exercise Library</Button></ListGroup.Item>
+          <ListGroup.Item className="mb-5"><Button variant="secondary" onClick={() => navigate("/workoutplanner")}>Workout Planner</Button></ListGroup.Item>
           <ListGroup.Item><Button variant="secondary" onClick={() => navigate("/dashboard")}>Dashboard</Button></ListGroup.Item>
         </Offcanvas.Body>
       </Offcanvas>

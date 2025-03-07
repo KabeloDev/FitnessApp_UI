@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
-function Dashboard() {
+function WorkoutPlanner() {
     var navigate = useNavigate();
     const token = localStorage.getItem("token");
 
@@ -43,7 +43,7 @@ function Dashboard() {
                     <Modal.Title>Sign In Required</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    You need to sign in to access the dashboard.
+                    You need to sign in to access the workout planner.
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={() => navigate("/")}>
@@ -67,4 +67,4 @@ function Dashboard() {
     );
 }
 
-export default Dashboard;
+export default WorkoutPlanner;
