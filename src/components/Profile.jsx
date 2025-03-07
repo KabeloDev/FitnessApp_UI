@@ -11,9 +11,19 @@ function Profile() {
     // Define state for user details
     const [userName, setUserName] = useState("");
     const [userEmail, setUserEmail] = useState("");
+    const [userPic, setUserPic] = useState("");
     const [userId, setUserId] = useState("");
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
+
+    // List of 5 avatar URLs
+    const avatarOptions = [
+        "https://cdn-icons-png.flaticon.com/512/147/147144.png",
+        "https://cdn-icons-png.flaticon.com/512/168/168734.png",
+        "https://cdn-icons-png.flaticon.com/512/921/921071.png",
+        "https://cdn-icons-png.flaticon.com/512/1154/1154471.png",
+        "https://cdn-icons-png.flaticon.com/512/3006/3006872.png"
+    ];
 
     useEffect(() => {
         if (token) {
@@ -36,28 +46,29 @@ function Profile() {
             axios.get(`https://localhost:7182/api/Users/GetUserById/${userId}`)
                 .then((response) => {
                     setUserEmail(response.data.email);
+                    setUserPic(response.data.profileImageUrl || null);
                 })
                 .catch((error) => {
                     console.log("Error fetching user data:", error);
                 });
         }
-    }, [userId]); // Only run when userId is available
+    }, [userId]);
 
     function handleSaveChanges() {
-        const payload = { username: userName, email: userEmail };
+        const payload = { username: userName, email: userEmail, profileImage: userPic };
 
         axios.put(`https://localhost:7182/api/Users/UpdateUser/${userId}`, payload, {
             headers: { "Content-Type": "application/json" }
         })
-        .then(() => {
-            setSuccess("Profile updated successfully!");
-            setError("");
-        })
-        .catch((error) => {
-            setError("Failed to update profile. Try again.");
-            setSuccess("");
-            console.log("Update error:", error);
-        });
+            .then(() => {
+                setSuccess("Profile updated successfully!");
+                setError("");
+            })
+            .catch((error) => {
+                setError("Failed to update profile. Try again.");
+                setSuccess("");
+                console.log("Update error:", error);
+            });
     }
 
     function handleLogout() {
@@ -71,11 +82,13 @@ function Profile() {
                 <Row className="profile-container p-4">
                     {/* Left: Profile Picture */}
                     <Col md={4} className="text-center">
-                        <Image 
-                            src="https://cdn-icons-png.flaticon.com/512/149/149071.png" 
-                            roundedCircle 
+                        <Image
+                            src={userPic && userPic.trim() !== "string" ? userPic : "https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"}
+                            roundedCircle
                             className="profile-image"
                         />
+
+
                         <h3 className="mt-3">{userName}</h3>
                         <p className="text-muted">{userEmail}</p>
                     </Col>
@@ -90,20 +103,37 @@ function Profile() {
                         <Form>
                             <Form.Group className="mb-3">
                                 <Form.Label>Username</Form.Label>
-                                <Form.Control 
-                                    type="text" 
-                                    value={userName} 
+                                <Form.Control
+                                    type="text"
+                                    value={userName}
                                     onChange={(e) => setUserName(e.target.value)}
                                 />
                             </Form.Group>
 
                             <Form.Group className="mb-3">
                                 <Form.Label>Email</Form.Label>
-                                <Form.Control 
-                                    type="email" 
-                                    value={userEmail} 
+                                <Form.Control
+                                    type="email"
+                                    value={userEmail}
                                     onChange={(e) => setUserEmail(e.target.value)}
                                 />
+                            </Form.Group>
+
+                            {/* Avatar Selection */}
+                            <Form.Group className="mb-3">
+                                <Form.Label>Select an Avatar</Form.Label>
+                                <div className="avatar-selection d-flex justify-content-between">
+                                    {avatarOptions.map((avatar, index) => (
+                                        <Image
+                                            key={index}
+                                            src={avatar}
+                                            roundedCircle
+                                            className={`avatar-option ${userPic === avatar ? "selected-avatar" : ""}`}
+                                            onClick={() => setUserPic(avatar)}
+                                            style={{ width: "50px", height: "50px", cursor: "pointer", border: userPic === avatar ? "3px solid #007bff" : "none" }}
+                                        />
+                                    ))}
+                                </div>
                             </Form.Group>
 
                             <Button className="w-100 mb-3" variant="primary" onClick={handleSaveChanges}>
@@ -121,7 +151,6 @@ function Profile() {
 
             {/* Background Image with Blur */}
             <div className="profile-bg"></div>
-            
 
             {/* Back Button */}
             <Button className="back-btn" variant="light" onClick={() => navigate("/")}>
