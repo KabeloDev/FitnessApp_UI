@@ -8,6 +8,8 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Profile from './components/Profile';
+import ExerciseLibrary from './components/ExerciseLibrary';
+import WorkoutPlanner from './components/WorkoutPlanner';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/exerciselibrary" element={<ExerciseLibrary />} />
+        <Route path="/workoutplanner" element={<WorkoutPlanner />} />
       </Routes>
     </BrowserRouter>
   );
