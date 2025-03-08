@@ -140,9 +140,12 @@ function WorkoutPlanner() {
                     {/* Content */}
                     <div className="content" style={{ position: "relative", zIndex: 1 }}>
                         <div><Button variant="light" className="mb-4" onClick={() => navigate("/")}>Back</Button></div>
-                        <Button variant="primary" className="mb-3" onClick={() => setShowAddWorkoutModal(true)}>
+                        <div className="mb-3">
+                        <Button className="me-2" variant="primary" onClick={() => setShowAddWorkoutModal(true)}>
                             Add Workout
                         </Button>
+                        <Button variant="info">Calendar</Button>
+                        </div>
 
                         {/* Add Workout Modal */}
                         <Modal show={showAddWorkoutModal} onHide={() => setShowAddWorkoutModal(false)}>
