@@ -10,6 +10,7 @@ import Dashboard from './components/Dashboard';
 import Profile from './components/Profile';
 import ExerciseLibrary from './components/ExerciseLibrary';
 import WorkoutPlanner from './components/WorkoutPlanner';
+import PlannerCalendar from './components/Calendar';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/exerciselibrary" element={<ExerciseLibrary />} />
         <Route path="/workoutplanner" element={<WorkoutPlanner />} />
+        <Route path="/calendar" element={<PlannerCalendar />} />
       </Routes>
     </BrowserRouter>
   );

@@ -144,7 +144,7 @@ function WorkoutPlanner() {
                         <Button className="me-2" variant="primary" onClick={() => setShowAddWorkoutModal(true)}>
                             Add Workout
                         </Button>
-                        <Button variant="info">Calendar</Button>
+                        <Button variant="info"  onClick={() => navigate("/calendar")}>Calendar</Button>
                         </div>
 
                         {/* Add Workout Modal */}
@@ -239,6 +239,9 @@ function WorkoutPlanner() {
                                                         </ListGroup.Item>
                                                         <ListGroup.Item>
                                                             <strong>Reps:</strong> {exercise.reps}
+                                                        </ListGroup.Item>
+                                                        <ListGroup.Item>
+                                                            <strong>Time:</strong> {exercise.time}
                                                         </ListGroup.Item>
                                                     </ListGroup>
                                                 </Card.Body>
