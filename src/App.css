@@ -340,6 +340,13 @@
   font-weight: bold;
 }
 
+/* Pie chart */
+
+.pie-chart {
+  max-height: 300px;  /* Limit the height to 300px (you can adjust this as needed) */
+  margin: 0 auto;     /* Center the chart */
+  display: block;
+}
 
 
 
