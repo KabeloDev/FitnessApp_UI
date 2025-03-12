@@ -78,9 +78,6 @@ Register/Sign in: <br/>
 <img src="https://i.imgur.com/DDRwIMj.png" height="80%" width="80%" />
 <br />
 <br />
-MS SQLServer database: <br/>
-<img src="https://i.imgur.com/aN3Zwhu.png" height="80%" width="80%" />
-<br />
-<br />
+
 
 
