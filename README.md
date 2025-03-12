@@ -30,11 +30,11 @@ This app is designed to help you plan, track, and analyze your workouts to stay 
 
 <p align="center">
 Home page: <br/>
-<img src="https://i.imgur.com/480BuX2.png" height="80%" width="80%" />
+<img src="https://i.imgur.com/Ol41Hl6.png" height="80%" width="80%" />
 <br />
 <br />
 <br/>
-<img src="https://i.imgur.com/rMyu2tL.png" height="80%" width="80%" />
+<img src="https://i.imgur.com/vwSDoiD.png" height="80%" width="80%" />
 <br />
 <br />
 Documents page: <br/>
