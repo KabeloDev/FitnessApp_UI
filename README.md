@@ -29,11 +29,14 @@ This app is designed to help you plan, track, and analyze your workouts to stay 
 <h2>Program walk-through:</h2>
 
 <p align="center">
-Home page: <br/>
+Home: <br/>
 <img src="https://i.imgur.com/Ol41Hl6.png" height="80%" width="80%" />
 <br />
 <br />
 <br/>
+<img src="https://i.imgur.com/233Wq4i.png" height="80%" width="80%" />
+<br />
+<br />
 <img src="https://i.imgur.com/vwSDoiD.png" height="80%" width="80%" />
 <br />
 <br />
@@ -42,44 +45,37 @@ Home page: <br/>
 <br /><img src="https://i.imgur.com/dlTkhQ2.png" height="80%" width="80%" />
 <br />
 <br />
-Documents page: <br/>
-<img src="https://i.imgur.com/wMBeBPA.png" height="80%" width="80%" />
+Exercise Library: <br/>
+<img src="https://i.imgur.com/Nx1XHau.png" height="80%" width="80%" />
 <br />
 <br />
-Edit documents page: <br/>
-<img src="https://i.imgur.com/i09wj9d.png" height="80%" width="80%" />
+Workout Planner: <br/>
+<img src="https://i.imgur.com/eHrSEW9.png" height="80%" width="80%" />
 <br />
 <br />
-Image gallery page: <br/>
-<img src="https://i.imgur.com/1vEcH29.png" height="80%" width="80%" />
+<img src="https://i.imgur.com/6N3jmYY.png" height="80%" width="80%" />
 <br />
 <br />
-Task calendar page: <br/>
-<img src="https://i.imgur.com/6X1YULI.png" height="80%" width="80%" />
+Calendar: <br/>
+<img src="https://i.imgur.com/eXh0uc9.png" height="80%" width="80%" />
 <br />
 <br />
-Task analytics page: <br/>
-<img src="https://i.imgur.com/XyyUgPL.png" height="80%" width="80%" />
+Dashboard: <br/>
+<img src="https://i.imgur.com/nFy8ijB.png" height="80%" width="80%" />
 <br />
 <br />
-Add new task page: <br/>
-<img src="https://i.imgur.com/QdinQ0p.png" height="80%" width="80%" />
+<img src="https://i.imgur.com/qBeffay.png" height="80%" width="80%" />
 <br />
 <br />
-Task details page: <br/>
-<img src="https://i.imgur.com/CX1xWe6.png" height="80%" width="80%" />
+User Profile: <br/>
+<img src="https://i.imgur.com/w690Tpt.png" height="80%" width="80%" />
 <br />
 <br />
-Edit task page: <br/>
-<img src="https://i.imgur.com/1sLVlOZ.png" height="80%" width="80%" />
+Register/Sign in: <br/>
+<img src="https://i.imgur.com/SPiqJQl.png" height="80%" width="80%" />
 <br />
 <br />
-Login page: <br/>
-<img src="https://i.imgur.com/2QMaVVJ.png" height="80%" width="80%" />
-<br />
-<br />
-Register page: <br/>
-<img src="https://i.imgur.com/ZHTUuS3.png" height="80%" width="80%" />
+<img src="https://i.imgur.com/DDRwIMj.png" height="80%" width="80%" />
 <br />
 <br />
 MS SQLServer database: <br/>
