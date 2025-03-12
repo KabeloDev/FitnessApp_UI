@@ -37,6 +37,11 @@ Home page: <br/>
 <img src="https://i.imgur.com/vwSDoiD.png" height="80%" width="80%" />
 <br />
 <br />
+ <img src="https://i.imgur.com/vwSDoiD.png" height="80%" width="80%" />
+<br />
+<br /><img src="https://i.imgur.com/vwSDoiD.png" height="80%" width="80%" />
+<br />
+<br />
 Documents page: <br/>
 <img src="https://i.imgur.com/wMBeBPA.png" height="80%" width="80%" />
 <br />
