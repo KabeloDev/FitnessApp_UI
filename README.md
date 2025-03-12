@@ -37,9 +37,9 @@ Home page: <br/>
 <img src="https://i.imgur.com/vwSDoiD.png" height="80%" width="80%" />
 <br />
 <br />
- <img src="https://i.imgur.com/vwSDoiD.png" height="80%" width="80%" />
+<img src="https://i.imgur.com/Mccd4gd.png" height="80%" width="80%" />
 <br />
-<br /><img src="https://i.imgur.com/vwSDoiD.png" height="80%" width="80%" />
+<br /><img src="https://i.imgur.com/dlTkhQ2.png" height="80%" width="80%" />
 <br />
 <br />
 Documents page: <br/>
